@@ -1,0 +1,28 @@
+<%- include ("../default/header") %>
+<div class="content wrap">
+    <table border="1" style="width:100%;">
+        <tr>
+            <th>번호</th> <th>id</th> <th>제목</th> <th>날짜</th>
+            <th>조회수</th> <th>원본 이미지이름</th> <th>변경 이미지이름</th>
+        </tr>
+        <% if( list.length == 0){ %>
+            <tr>
+                <th colspan="7">등록된 글이 없습니다</th>
+            </tr>
+        <%}else{
+            list.forEach(data=>{%>
+            <tr>
+                <td><%=data.WRITE_NO%></td><td><%=data.ID%></td>
+                <td><%=data.TITLE%></td><td><%=data.SAVE_DATE%></td>
+                <td><%=data.HIT%></td><td><%=data.ORIGIN_FILE_NAME%></td>
+                <td><%=data.CHANGE_FILE_NAME%></td>
+            </tr>
+            <%})
+        }%>
+        <tr>
+            <td colspan="7" align="right">
+                <a href="/board/write_form">글 작성</a>
+            </td>
+        </tr>
+    </table>
+</div>

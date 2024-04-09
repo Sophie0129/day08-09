@@ -1,0 +1,22 @@
+<%- include ("../default/header") %>
+<script src="/static/js/image_read.js"></script>
+<div class="content wrap">
+    <div style="width: 400px; margin: 0 auto; ">
+        <h1 style="text-align: center">글쓰기</h1>
+        <form method="post" action="/board/write" 
+                                        enctype="multipart/form-data">
+            <b>작성자</b><br>   <!-- readonly : 읽기 전용 -->
+            <input type="text" name="id" value="<%= username %>" readonly />
+            <hr>
+            <b>제목</b> <br> <input type="text" size="50" name="title" /><hr>
+            <b>내용</b> <br>
+            <textarea name="content" rows="10" cols="50"></textarea><hr>
+            <b>이미지파일 첨부</b><br>
+            <input type="file" name="image_file_name" onchange="readURL(this);" /> 
+            <img id="img" src="#" width=100 height=100 alt="선택된 이미지가 없습니다" />
+            <hr> 
+            <input type="submit" value="글쓰기">
+            <input type=button value="목록보기" onClick="location.href='/board/list'">
+        </form>
+    </div>
+</div>

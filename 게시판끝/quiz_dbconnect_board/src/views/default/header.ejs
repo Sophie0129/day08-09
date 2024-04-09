@@ -1,0 +1,44 @@
+<link href="/static/css/header.css" rel="stylesheet">
+<script >
+window.onload = () =>{
+    console.log(document.cookie);
+    let msg ="<li><a href='/'>HOME</a></li>";
+    
+    msg +="<li><a href='/board/list'>BOARD</a></li>";
+
+    if(document.cookie.indexOf("isLogin=true") !== -1 ){
+        msg += '<li><a href="/member/logout">로그아웃</a></li>';
+        msg += '<li><a href="/member/list">회원정보</a></li>';
+    }else{
+        msg += '<li><a href="/member/login">로그인</a></li>';
+        msg += '<li><a href="/member/login">회원정보</a></li>';
+    }
+    document.querySelector("#nav ul").innerHTML = msg
+
+    console.log("location.href : ", location.href );
+    console.log( location.href.indexOf("/board/data"))
+    
+    if( location.href.indexOf("/board/data") != -1 ){
+        const num = document.getElementById("number")
+        console.log( 'num : ', num)
+        console.log( 'num.innerHTML : ', num.innerHTML )
+        console.log( 'num.innerText : ', num.innerText )
+        init( num.innerText ) 
+    }
+}
+</script>
+<div class="wrap">
+    <div class="header">
+        <h1 class="title">CARE LAB</h1>
+    </div>
+</div>
+<div class="navdiv">
+    <div class="wrap">
+        <nav id="nav" class="nav">
+            <ul></ul>
+        </nav>
+    </div>
+</div>
+<hr>
+
+

@@ -1,0 +1,20 @@
+<%- include ("../default/header") %>
+<script src="/static/js/image_read.js"></script>
+<div class="content wrap">
+<div style="width:300px; margin: 0 auto;">
+    <form action="/board/modify" enctype="multipart/form-data" method="post" >
+        <input type="hidden" name="write_no" value="<%=data.WRITE_NO%>">
+        <input type="hidden" name="change_file_name" value="<%=data.CHANGE_FILE_NAME%>">
+        <input type="hidden" name="origin_file_name" value="<%=data.ORIGIN_FILE_NAME%>">
+        제목	<input type="text" size="30" name="title" value="<%=data.TITLE%>"><hr>
+        내용	<textarea rows="5" cols="30" name="content"><%=data.CONTENT%></textarea>
+        <hr>
+        <img width="200px" height="100px" id="img"
+                        src="/board/download/<%=data.CHANGE_FILE_NAME%>">
+        <input type="file" name="image_file_name" onchange="readURL(this)">
+        <hr>
+        <input type="submit" value="수정하기">
+        <input type="button" onclick="history.back()" value="이전으로 돌아가기">
+    </form>
+</div>
+</div>
